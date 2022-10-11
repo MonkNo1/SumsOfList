@@ -1,45 +1,18 @@
 import itertools
+from itertools import combinations
 
 arr = [2,3,4,5,6,7,8]
 
 
-def find_sum(inp,t):
-    i = 0
-    tsl = []
-    tlst = []
-    while i < len(inp):
-        if (i+1) > len(inp):
-            break
-        ts = inp[i] + inp[(i + 1)]
-        if ts == t : 
-           tsl.append(i) 
-           tsl.append(i+1) 
-        tlst.append(tsl)
-        i = i + 1
-    #test for adding 3 nos 
-    i = 0 
-    while i < len(inp):
-        if (i+1) > len(inp) or (i+2) > len(inp)  :
-            break
-        ts = inp[i] + inp[(i + 1)]+inp[(i + 2)]
-        if ts == t : 
-           tsl.append(i) 
-           tsl.append(i+1)
-           tsl.append(i+2)
-        tlst.append(tsl)
-    i = 0 
-    while i < len(inp):
-        if (i+1) > len(inp) or (i+2) > len(inp)  or (i+3) > len(inp) :
-            break
-        ts = inp[i] + inp[(i + 1)]+inp[(i + 2)]+inp[(i+3)]
-        if ts == t : 
-           tsl.append(i) 
-           tsl.append(i+1)
-           tsl.append(i+2)
-           tsl.append(i+3)
-        tlst.append(tsl)
-    
-    return tlst
+def sum_list(total, a):
+    h = []
+    c = [2,3,4,5,6,7,8]
+    print(c)
+    h = [combo for combo in combinations(c, a) if sum(combo) == total]
+    # return f'{total} contains of {a} elements : {h}'
+    print(f'{total} contains of {a} elements : {h}')
+
+sum_list(12,3)
 
 def rem_dup(test_list):
     res = []
@@ -64,6 +37,7 @@ mat = [
 ]
 
 lst = []
+
 
 
 lst = list(itertools.chain.from_iterable(mat))
