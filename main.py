@@ -42,7 +42,9 @@ def sumOfOne():
         kblst.append(sum_list(arr,tkval,j))
         j = j + 1 
     j = 0
-    print(tkval,":",kblst)
+    res = [ele for ele in kblst if ele != []]
+    merged = list(itertools.chain.from_iterable(res))
+    print(tkval,":",merged)
     kblst.clear()
 
 def sumOfAll(nlst):
@@ -56,7 +58,9 @@ def sumOfAll(nlst):
             j = j + 1 
         # print("The Value of I %d"%i)
         j = 0
-        print(nlst[i],":",blst)
+        res = [ele for ele in blst if ele != []]
+        merged = list(itertools.chain.from_iterable(res))
+        print(nlst[i],":",merged)
         i = i + 1
         blst.clear()
 
