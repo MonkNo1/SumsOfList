@@ -1,8 +1,9 @@
-from __future__ import print_function
 import itertools 
-from itertools import combinations 
+from itertools import combinations
+from arrSort import sortarr
 
-arr = [2,3,4,5,6,7,8] 
+
+arr = [3,5,2,7,4,2,3] 
   
   
 def sum_list(arr,total, a): 
@@ -10,6 +11,21 @@ def sum_list(arr,total, a):
     c= arr 
     h=[combo for combo in combinations(c, a) if sum(combo) == total] 
     return h 
+
+  
+# def remEM(klst):
+#     print("Remove MT List : ")
+#     i = 0
+#     while i < len(klst):
+#         print(len(klst[i]))
+#         if len(klst[i]) == 0:
+#             klst.pop(i)
+#         i = i + 1   
+#     return klst
+def remEM(klst):
+    list2 = [e for e in klst if e]
+    return list2
+    
 
 def rem_dup(test_list): 
     res = [] 
@@ -39,9 +55,11 @@ lst=list(itertools.chain.from_iterable(mat))
  
  #print(lst) 
 nlst = rem_dup(lst) 
-nlst.remove('na') 
+nlst.remove('na')
+tmplskt = sortarr(nlst)
 print("The Nlst value is ") 
-print(nlst) 
+print(tmplskt) 
+nlst = tmplskt
 
 
 
@@ -57,8 +75,8 @@ while i < len(nlst):
         j = j + 1 
     # print("The Value of I %d"%i)
     j = 0
-    tdic = {nlst[i]:blst}
-    print(tdic)
+    print(nlst[i])
+    print(blst)
     i = i + 1
     blst.clear()
 
