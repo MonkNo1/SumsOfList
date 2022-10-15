@@ -1,27 +1,20 @@
+from heapq import nlargest
 import itertools 
 from itertools import combinations
 from arrSort import sortarr
 
 
 arr = [3,5,2,7,4,2,3] 
+lst=[] 
+blst = []
   
   
 def sum_list(arr,total, a): 
-    h= [] 
+    h=[] 
     c= arr 
     h=[combo for combo in combinations(c, a) if sum(combo) == total] 
     return h 
 
-  
-# def remEM(klst):
-#     print("Remove MT List : ")
-#     i = 0
-#     while i < len(klst):
-#         print(len(klst[i]))
-#         if len(klst[i]) == 0:
-#             klst.pop(i)
-#         i = i + 1   
-#     return klst
 def remEM(klst):
     list2 = [e for e in klst if e]
     return list2
@@ -40,6 +33,42 @@ def Get_inp():
         temp =int(input("Enter a no :")) 
         arr.append(temp) 
         i=i+1 
+    
+def sumOfOne():
+    kblst = []
+    j = 0
+    print("\n\nThe Sum oF One : ")
+    tkval = int(input("Enter A No to find : "))
+    while j < len(arr):
+        kblst.append(sum_list(arr,tkval,j))
+        j = j + 1 
+    j = 0
+    print(tkval,":",kblst)
+    kblst.clear()
+
+def sumOfAll(nlst):
+    i = 0 
+    j = 0
+    print("\n\nThe Sum oF All : ")
+    while i < len(nlst):
+        while j < len(arr):
+            # print(arr,nlst[i],j)
+            blst.append(sum_list(arr,nlst[i],j))
+            j = j + 1 
+        # print("The Value of I %d"%i)
+        j = 0
+        print(nlst[i],":",blst)
+        i = i + 1
+        blst.clear()
+
+def validSum():      
+    lst=list(itertools.chain.from_iterable(mat)) 
+    nlst = rem_dup(lst) 
+    nlst.remove('na')
+    tmplskt = sortarr(nlst)
+    print("\nThe valid Sum is : ", tmplskt) 
+    nlst = tmplskt
+    sumOfAll(nlst)
   
 mat=[ 
      [21,"na","na","na",12], 
@@ -49,46 +78,5 @@ mat=[
      ["na",22,"na","na","na"], 
 ] 
   
-lst=[] 
-
-lst=list(itertools.chain.from_iterable(mat)) 
- 
- #print(lst) 
-nlst = rem_dup(lst) 
-nlst.remove('na')
-tmplskt = sortarr(nlst)
-print("\nThe valid Sum is : ", tmplskt) 
-# print(tmplskt) 
-nlst = tmplskt
-
-
-blst = []
-i = 0 
-j = 0
-print("\n\nThe Sum oF All : ")
-while i < len(nlst):
-    while j < len(arr):
-        # print(arr,nlst[i],j)
-        blst.append(sum_list(arr,nlst[i],j))
-        j = j + 1 
-    # print("The Value of I %d"%i)
-    j = 0
-    print(nlst[i],":",blst)
-    i = i + 1
-    blst.clear()
-
-
-
-kblst = []
-i = 0 
-j = 0
-print("\n\nThe Sum oF One : ")
-tkval = int(input("Enter A No to find : "))
-while j < len(arr):
-    # print(arr,nlst[i],j)
-    kblst.append(sum_list(arr,tkval,j))
-    j = j + 1 
-# int("The Value of I %d"%i)
-j = 0
-print(tkval,":",kblst)
-kblst.clear()
+validSum()
+sumOfOne()
