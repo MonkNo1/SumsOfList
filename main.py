@@ -33,6 +33,14 @@ def rem_dup(test_list):
             res.append(i) 
     return res 
   
+def rem_na(lsk):
+    resk = []
+    for i in lsk:
+        if i == 'na':
+            continue
+        else:
+            resk.append(i)
+    return resk
 def Get_inp(): 
     i =0 
     while i < 7: 
@@ -73,11 +81,11 @@ def sumOfAll(nlst):
 
 def validSum():      
     lst=list(itertools.chain.from_iterable(mat)) 
-    nlst = rem_dup(lst) 
-    nlst.remove('na')
+    nlst = rem_na(lst)
     tmplskt = sortarr(nlst)
     print("\nThe valid Sum is : ", tmplskt) 
     nlst = tmplskt
+    nlst = rem_dup(nlst) 
     sumOfAll(nlst)
   
 mat=[ 
