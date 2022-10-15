@@ -57,17 +57,15 @@ lst=list(itertools.chain.from_iterable(mat))
 nlst = rem_dup(lst) 
 nlst.remove('na')
 tmplskt = sortarr(nlst)
-print("The Nlst value is ") 
-print(tmplskt) 
+print("\nThe valid Sum is : ", tmplskt) 
+# print(tmplskt) 
 nlst = tmplskt
 
-
-
-tdic = {}
 
 blst = []
 i = 0 
 j = 0
+print("\n\nThe Sum oF All : ")
 while i < len(nlst):
     while j < len(arr):
         # print(arr,nlst[i],j)
@@ -75,10 +73,22 @@ while i < len(nlst):
         j = j + 1 
     # print("The Value of I %d"%i)
     j = 0
-    print(nlst[i])
-    print(blst)
+    print(nlst[i],":",blst)
     i = i + 1
     blst.clear()
 
 
-print(tdic)
+
+kblst = []
+i = 0 
+j = 0
+print("\n\nThe Sum oF One : ")
+tkval = int(input("Enter A No to find : "))
+while j < len(arr):
+    # print(arr,nlst[i],j)
+    kblst.append(sum_list(arr,tkval,j))
+    j = j + 1 
+# int("The Value of I %d"%i)
+j = 0
+print(tkval,":",kblst)
+kblst.clear()
