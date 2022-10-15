@@ -1,3 +1,4 @@
+from __future__ import print_function
 import itertools 
 from itertools import combinations 
 
@@ -9,8 +10,7 @@ def sum_list(arr,total, a):
     c= arr 
     h=[combo for combo in combinations(c, a) if sum(combo) == total] 
     return h 
-  
-  
+
 def rem_dup(test_list): 
     res = [] 
     for i in test_list: 
@@ -42,26 +42,25 @@ nlst = rem_dup(lst)
 nlst.remove('na') 
 print("The Nlst value is ") 
 print(nlst) 
-  
-  
-#  i = 1 
-#  for x in nlst: 
-#      i = i + 1 
-#      # print(i) 
-#      # print(len(nlst)) 
-#      if i > (len(nlst)+1): 
-#          break 
-#      # print(x) 
-#      kst = sum_list(arr,x,i) 
-#      print(kst)
+
+
 
 tdic = {}
 
 blst = []
 i = 0 
 j = 0
-while i <= len(nlst):
+while i < len(nlst):
     while j < len(arr):
+        # print(arr,nlst[i],j)
         blst.append(sum_list(arr,nlst[i],j))
+        j = j + 1 
+    # print("The Value of I %d"%i)
+    j = 0
     tdic = {nlst[i]:blst}
-    blst.remove()
+    print(tdic)
+    i = i + 1
+    blst.clear()
+
+
+print(tdic)
